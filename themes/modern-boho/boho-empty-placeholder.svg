@@ -1,19 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 300" role="img" aria-label="Empty Modern Boho name tag space">
   <defs>
-    <filter id="paper" x="-10%" y="-10%" width="120%" height="120%">
-      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="7" result="noise"/>
-      <feColorMatrix in="noise" type="saturate" values="0" result="mono"/>
-      <feComponentTransfer in="mono"><feFuncA type="table" tableValues="0 0.06"/></feComponentTransfer>
-      <feBlend in="SourceGraphic" in2="mono" mode="multiply"/>
+    <filter id="wash" x="-15%" y="-15%" width="130%" height="130%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.018 0.045" numOctaves="3" seed="11" result="noise"/>
+      <feColorMatrix in="noise" type="matrix" values="0.85 0 0 0 0.08  0 0.88 0 0 0.08  0 0 0.82 0 0.07  0 0 0 0.34 0" result="tint"/>
+      <feGaussianBlur in="tint" stdDeviation="7" result="soft"/>
+      <feBlend in="SourceGraphic" in2="soft" mode="multiply"/>
+    </filter>
+    <filter id="edge" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.025" numOctaves="2" seed="4" result="edgeNoise"/>
+      <feDisplacementMap in="SourceGraphic" in2="edgeNoise" scale="4" xChannelSelector="R" yChannelSelector="G"/>
     </filter>
   </defs>
-  <rect x="8" y="8" width="684" height="284" rx="38" fill="#d8dfcf" opacity="0.9" filter="url(#paper)"/>
-  <rect x="12" y="12" width="676" height="276" rx="34" fill="none" stroke="#9a826c" stroke-width="8" stroke-dasharray="18 15" stroke-linecap="round" opacity="0.92"/>
-  <path d="M48 250 C78 218 110 218 142 250 C118 268 81 273 48 250Z" fill="#aab79b" opacity="0.85"/>
-  <path d="M65 255 C88 235 108 235 129 255" fill="none" stroke="#d18461" stroke-width="8" stroke-linecap="round" opacity="0.82"/>
-  <g opacity="0.82" fill="#c7a27f">
-    <circle cx="588" cy="66" r="8"/><circle cx="614" cy="82" r="6"/><circle cx="635" cy="60" r="7"/>
-  </g>
-  <path d="M618 238 q18-26 36 0 q18-26 36 0" fill="none" stroke="#d18461" stroke-width="9" stroke-linecap="round" opacity="0.82"/>
-  <path d="M625 245 q12-17 24 0 q12-17 24 0" fill="none" stroke="#aab79b" stroke-width="8" stroke-linecap="round" opacity="0.9"/>
+  <rect x="12" y="12" width="676" height="276" rx="38" fill="#d9dfd0" opacity="0.78" filter="url(#wash)"/>
+  <rect x="15" y="15" width="670" height="270" rx="36" fill="none" stroke="#8f7e68" stroke-width="6" stroke-dasharray="17 14" stroke-linecap="round" opacity="0.78" filter="url(#edge)"/>
 </svg>
